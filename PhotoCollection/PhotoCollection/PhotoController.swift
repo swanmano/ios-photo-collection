@@ -16,7 +16,6 @@ class PhotoController {
     }
         
     func update(photo: Photo, data: Data, title: String) {
-            
+            // TODO: write code for update function
         }
-    }
 }

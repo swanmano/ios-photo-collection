@@ -16,6 +16,9 @@ class ThemeHelper {
     
     init(themePreferenceKey: String) {
         self.themePreferenceKey = themePreferenceKey
+        if themePreference == nil {
+            setThemePreferenceToDark()
+        }
     }
     
     func setThemePreferenceToDark() {
