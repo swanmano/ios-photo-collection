@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,6 +68,7 @@
                                 <connections>
                                     <outlet property="photoImage" destination="u8F-a9-pKK" id="KVB-0e-7Qo"/>
                                     <outlet property="photoLabel" destination="MRY-Ga-ekQ" id="MqW-0K-NSt"/>
+                                    <segue destination="qih-0a-OCP" kind="show" identifier="ShowPhotoDetailSegue" id="c0n-XB-L28"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -77,12 +79,73 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="gvs-3X-UGg">
                         <barButtonItem key="leftBarButtonItem" title="Select Theme" id="jDi-s5-Mxs"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDl-c2-07H"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDl-c2-07H">
+                            <connections>
+                                <segue destination="qih-0a-OCP" kind="show" identifier="AddNewPhotoSegue" id="0iR-yU-5df"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sa4-xW-QVn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802.89855072463774" y="113.83928571428571"/>
+            <point key="canvasLocation" x="593" y="114"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="wm1-lE-xgk">
+            <objects>
+                <viewController id="qih-0a-OCP" customClass="PhotoDetailViewController" customModule="PhotoCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pZU-g4-UOo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ie9-KC-dW6">
+                                <rect key="frame" x="33" y="127" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npS-Vw-QsF">
+                                <rect key="frame" x="117" y="301" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Photo"/>
+                                <connections>
+                                    <action selector="addPhoto:" destination="qih-0a-OCP" eventType="touchUpInside" id="uP4-WR-S0x"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-ez-lT7">
+                                <rect key="frame" x="105" y="350" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-S9-SiD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="jBJ-40-Efs">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Up5-cq-stw">
+                                            <connections>
+                                                <action selector="savePhoto:" destination="qih-0a-OCP" id="VFx-b6-Rzf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QlV-S9-SiD" firstAttribute="leading" secondItem="00F-2a-efA" secondAttribute="leading" id="A37-8W-LLN"/>
+                            <constraint firstItem="QlV-S9-SiD" firstAttribute="top" secondItem="pZU-g4-UOo" secondAttribute="topMargin" id="Ize-tM-aTe"/>
+                            <constraint firstItem="QlV-S9-SiD" firstAttribute="trailing" secondItem="00F-2a-efA" secondAttribute="trailing" id="Nce-Ys-RzU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="00F-2a-efA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="uMN-KS-j2m"/>
+                    <connections>
+                        <outlet property="photoDescription" destination="gpV-ez-lT7" id="SNW-DH-Bng"/>
+                        <outlet property="photoImageView" destination="Ie9-KC-dW6" id="6bh-Va-myM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwH-bp-0Nt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1289" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9P4-cO-TH6">
@@ -103,4 +166,7 @@
             <point key="canvasLocation" x="-107.24637681159422" y="113.83928571428571"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c0n-XB-L28"/>
+    </inferredMetricsTieBreakers>
 </document>
