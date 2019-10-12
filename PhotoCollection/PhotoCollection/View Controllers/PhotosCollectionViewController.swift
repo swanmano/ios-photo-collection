@@ -19,6 +19,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         setTheme()
 
@@ -102,12 +103,13 @@ class PhotosCollectionViewController: UICollectionViewController {
         guard let themePreference = themeHelper.themePreference else { return }
         switch themePreference {
         case "Dark":
-            self.view.backgroundColor = UIColor.darkGray
+            collectionView.backgroundColor = UIColor.systemGray5
         case "Green":
-            self.view.backgroundColor = UIColor.green
+            collectionView.backgroundColor = UIColor.systemGreen
         default:
-            self.view.backgroundColor = UIColor.blue
+            self.view.backgroundColor = UIColor.clear
         }
+        collectionView.reloadData()
     }
 
 }
