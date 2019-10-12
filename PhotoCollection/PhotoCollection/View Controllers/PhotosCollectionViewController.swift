@@ -20,6 +20,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        setTheme()
 
         // Do any additional setup after loading the view.
     }
@@ -105,7 +106,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         case "Green":
             self.view.backgroundColor = UIColor.green
         default:
-            self.view.backgroundColor = UIColor.clear
+            self.view.backgroundColor = UIColor.blue
         }
     }
 
