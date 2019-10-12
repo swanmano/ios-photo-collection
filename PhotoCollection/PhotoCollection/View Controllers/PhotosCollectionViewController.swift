@@ -24,15 +24,32 @@ class PhotosCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "ShowPhotoDetailSegue":
+            guard let photoDetailVC = segue.destination as? PhotoDetailViewController else { fatalError() }
+            
+            // there is a high probability that this next line won't work
+            if let indexPath = collectionView.indexPath(for: PhotosCollectionViewCell()) {
+                photoDetailVC.photo = photoController.photos[indexPath.item]
+                photoDetailVC.themeHelper = themeHelper
+                photoDetailVC.photoController = photoController
+            }
+        case "AddNewPhotoSegue":
+            guard let photoDetailVC = segue.destination as? PhotoDetailViewController else { fatalError() }
+                photoDetailVC.themeHelper = themeHelper
+                photoDetailVC.photoController = photoController
+        case "SelectThemeSegue":
+            guard let themeSelectionVC = segue.destination as? ThemeSelectionViewController else {
+                fatalError() }
+            themeSelectionVC.themeHelper = themeHelper
+        default:
+            return
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,7 +96,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     }
     */
     
-    // MARK: Methods
+    // MARK: - Methods
     func setTheme() {
         guard let themePreference = themeHelper.themePreference else { return }
         switch themePreference {
