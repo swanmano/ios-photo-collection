@@ -27,8 +27,15 @@ class PhotoDetailViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func addPhoto(_ sender: UIButton) {
+        
     }
+    
     @IBAction func savePhoto(_ sender: UIBarButtonItem) {
+        guard let photoController = photoController,
+        let photo = photo else { return }
+        photoController.create(photo)
+        // TODO: change save button to allow for update method
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: Methods
