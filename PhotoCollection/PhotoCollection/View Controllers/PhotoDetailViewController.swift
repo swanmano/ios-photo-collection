@@ -22,11 +22,9 @@ class PhotoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTheme()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
-    
+
     // MARK: Actions
     @IBAction func addPhoto(_ sender: UIButton) {
     }
@@ -44,6 +42,15 @@ class PhotoDetailViewController: UIViewController {
             default:
                 view.backgroundColor = UIColor.clear
             }
+    }
+    
+    func updateViews() {
+        setTheme()
+        guard let photo = photo else { return }
+        let data = photo.imageData
+        let photoImage = UIImage(data: data)
+        photoImageView.image = photoImage
+        photoDescription.text = photo.title
     }
 
     /*
