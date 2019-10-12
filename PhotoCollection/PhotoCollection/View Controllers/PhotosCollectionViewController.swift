@@ -18,12 +18,13 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         setTheme()
 
-        // Do any additional setup after loading the view.
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    @IBAction func unwindToPhotoCollectionViewController(_ sender: UIStoryboardSegue) {
+        setTheme()
     }
 
 
@@ -107,9 +108,8 @@ class PhotosCollectionViewController: UICollectionViewController {
         case "Green":
             collectionView.backgroundColor = UIColor.systemGreen
         default:
-            self.view.backgroundColor = UIColor.clear
+            collectionView.backgroundColor = UIColor.clear
         }
-        collectionView.reloadData()
     }
 
 }

@@ -118,6 +118,7 @@
                                         </state>
                                         <connections>
                                             <action selector="selectDarkThemeButton:" destination="u7o-Eg-ayt" eventType="touchUpInside" id="p7G-IX-ITF"/>
+                                            <segue destination="a3i-jq-Fwo" kind="unwind" unwindAction="unwindToPhotoCollectionViewController:" id="mf2-sB-v3D"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0p-sj-ESa">
@@ -127,6 +128,7 @@
                                         </state>
                                         <connections>
                                             <action selector="selectGreenThemeButton:" destination="u7o-Eg-ayt" eventType="touchUpInside" id="Q9z-DX-4YP"/>
+                                            <segue destination="a3i-jq-Fwo" kind="unwind" unwindAction="unwindToPhotoCollectionViewController:" id="FOI-Ml-5HQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -143,6 +145,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P67-C6-rPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="a3i-jq-Fwo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1417" y="-249"/>
         </scene>
