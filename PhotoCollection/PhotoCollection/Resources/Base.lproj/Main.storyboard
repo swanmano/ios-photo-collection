@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photos Collection View Controller-->
+        <!--Photo Collection-->
         <scene sceneID="cED-Sh-ZyJ">
             <objects>
                 <collectionViewController id="re6-Lc-yeF" customClass="PhotosCollectionViewController" customModule="PhotoCollection" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                             <outlet property="delegate" destination="re6-Lc-yeF" id="p2C-PC-zsN"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="gvs-3X-UGg">
+                    <navigationItem key="navigationItem" title="Photo Collection" id="gvs-3X-UGg">
                         <barButtonItem key="leftBarButtonItem" title="Select Theme" id="jDi-s5-Mxs">
                             <connections>
                                 <segue destination="u7o-Eg-ayt" kind="presentation" identifier="SelectThemeSegue" id="14g-6J-Dy0"/>
@@ -146,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="1417" y="-249"/>
         </scene>
-        <!--Title-->
+        <!--Create Photo-->
         <scene sceneID="wm1-lE-xgk">
             <objects>
                 <viewController id="qih-0a-OCP" customClass="PhotoDetailViewController" customModule="PhotoCollection" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,28 +172,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-S9-SiD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="jBJ-40-Efs">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Up5-cq-stw">
-                                            <connections>
-                                                <action selector="savePhoto:" destination="qih-0a-OCP" id="VFx-b6-Rzf"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="QlV-S9-SiD" firstAttribute="leading" secondItem="00F-2a-efA" secondAttribute="leading" id="A37-8W-LLN"/>
-                            <constraint firstItem="QlV-S9-SiD" firstAttribute="top" secondItem="pZU-g4-UOo" secondAttribute="topMargin" id="Ize-tM-aTe"/>
-                            <constraint firstItem="QlV-S9-SiD" firstAttribute="trailing" secondItem="00F-2a-efA" secondAttribute="trailing" id="Nce-Ys-RzU"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="00F-2a-efA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="uMN-KS-j2m"/>
+                    <navigationItem key="navigationItem" title="Create Photo" id="uMN-KS-j2m">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Up5-cq-stw">
+                            <connections>
+                                <action selector="savePhoto:" destination="qih-0a-OCP" id="VFx-b6-Rzf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoDescription" destination="gpV-ez-lT7" id="SNW-DH-Bng"/>
                         <outlet property="photoImageView" destination="Ie9-KC-dW6" id="6bh-Va-myM"/>
@@ -208,8 +197,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TPy-xg-Bv7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="huk-tg-c2P">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="huk-tg-c2P">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

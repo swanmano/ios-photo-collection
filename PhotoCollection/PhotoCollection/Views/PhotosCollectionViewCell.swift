@@ -9,7 +9,23 @@
 import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: Properties
+    
+    var photo: Photo? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    // MARK: Outlets
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var photoLabel: UILabel!
     
+    
+    func updateViews() {
+        guard let photo = photo else { fatalError("A photo image was not loaded in the cell.")}
+ //       photoImage.image = photo.imageData
+        photoLabel.text = photo.title
+    }
 }
