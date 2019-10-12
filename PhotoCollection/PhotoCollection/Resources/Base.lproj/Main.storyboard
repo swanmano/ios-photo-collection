@@ -78,7 +78,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="gvs-3X-UGg">
-                        <barButtonItem key="leftBarButtonItem" title="Select Theme" id="jDi-s5-Mxs"/>
+                        <barButtonItem key="leftBarButtonItem" title="Select Theme" id="jDi-s5-Mxs">
+                            <connections>
+                                <segue destination="u7o-Eg-ayt" kind="presentation" identifier="SelectThemeSegue" id="14g-6J-Dy0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDl-c2-07H">
                             <connections>
                                 <segue destination="qih-0a-OCP" kind="show" identifier="AddNewPhotoSegue" id="0iR-yU-5df"/>
@@ -89,6 +93,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sa4-xW-QVn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="593" y="114"/>
+        </scene>
+        <!--Theme Selection View Controller-->
+        <scene sceneID="w7H-sL-mMY">
+            <objects>
+                <viewController id="u7o-Eg-ayt" customClass="ThemeSelectionViewController" customModule="PhotoCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Elu-iA-bcA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a color theme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSf-IJ-v0Z">
+                                <rect key="frame" x="98.5" y="125" width="217.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="DaU-16-YCp">
+                                <rect key="frame" x="136" y="214" width="142" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix1-ov-8yW">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
+                                        <state key="normal" title="Dark">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectDarkThemeButton:" destination="u7o-Eg-ayt" eventType="touchUpInside" id="p7G-IX-ITF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0p-sj-ESa">
+                                        <rect key="frame" x="100" y="0.0" width="42" height="30"/>
+                                        <state key="normal" title="Green">
+                                            <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectGreenThemeButton:" destination="u7o-Eg-ayt" eventType="touchUpInside" id="Q9z-DX-4YP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DaU-16-YCp" firstAttribute="centerX" secondItem="Elu-iA-bcA" secondAttribute="centerX" id="Y7a-fa-yNJ"/>
+                            <constraint firstItem="bSf-IJ-v0Z" firstAttribute="top" secondItem="EY8-pD-baL" secondAttribute="top" constant="125" id="cFI-Dh-t2x"/>
+                            <constraint firstItem="bSf-IJ-v0Z" firstAttribute="centerX" secondItem="Elu-iA-bcA" secondAttribute="centerX" id="n5j-R8-FsF"/>
+                            <constraint firstItem="DaU-16-YCp" firstAttribute="top" secondItem="bSf-IJ-v0Z" secondAttribute="bottom" constant="60" id="uqE-6a-aLp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EY8-pD-baL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P67-C6-rPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="-249"/>
         </scene>
         <!--Title-->
         <scene sceneID="wm1-lE-xgk">
@@ -145,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwH-bp-0Nt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="115"/>
+            <point key="canvasLocation" x="1442" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9P4-cO-TH6">
