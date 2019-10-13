@@ -8,7 +8,9 @@
 
 import UIKit
 
-
+protocol UpdateCollectionViewDelegate {
+    func updatePhotos()
+}
 
 class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,6 +19,8 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
     var photo: Photo?
     var themeHelper: ThemeHelper?
     let imagePicker = UIImagePickerController()
+    
+    var delegate: UpdateCollectionViewDelegate?
     
     // MARK: Outlets
     @IBOutlet weak var photoImageView: UIImageView!
@@ -46,6 +50,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         let photo = Photo(imageData: imageData, title: photoDescription)
         photoController.create(photo)
         // TODO: change save button to allow for update method
+        delegate?.updatePhotos()
         self.navigationController?.popViewController(animated: true)
     }
     

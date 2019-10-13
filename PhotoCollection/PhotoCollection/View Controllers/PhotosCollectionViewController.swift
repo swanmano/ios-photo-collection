@@ -19,7 +19,6 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // I put reloadData() and setTheme() in several locations in an effort to get the view to load correctly.  It didn't doesn't load correctly though.
-        collectionView.reloadData()
         setTheme()
     }
     
@@ -43,8 +42,9 @@ class PhotosCollectionViewController: UICollectionViewController {
 
         case "AddNewPhotoSegue":
             guard let photoDetailVC = segue.destination as? PhotoDetailViewController else { fatalError() }
-                photoDetailVC.themeHelper = themeHelper
-                photoDetailVC.photoController = photoController
+            photoDetailVC.delegate = self
+            photoDetailVC.themeHelper = themeHelper
+            photoDetailVC.photoController = photoController
        
         case "SelectThemeSegue":
             guard let themeSelectionVC = segue.destination as? ThemeSelectionViewController else {
@@ -91,6 +91,10 @@ extension PhotosCollectionViewController: ChangeThemeUpdate {
     func updateTheme() {
         setTheme()
     }
-    
-    
+}
+
+extension PhotosCollectionViewController: UpdateCollectionViewDelegate {
+    func updatePhotos() {
+        collectionView.reloadData()
+    }
 }
