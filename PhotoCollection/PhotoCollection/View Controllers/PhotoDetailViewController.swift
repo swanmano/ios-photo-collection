@@ -39,7 +39,10 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func savePhoto(_ sender: UIBarButtonItem) {
         guard let photoController = photoController,
-        let photo = photo else { return }
+            let photoImage = photoImageView.image,
+            let photoDescription = photoDescription.text else { return }
+        let imageData = photoImage.pngData()!
+        let photo = Photo(imageData: imageData, title: photoDescription)
         photoController.create(photo)
         // TODO: change save button to allow for update method
         self.navigationController?.popViewController(animated: true)

@@ -25,7 +25,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         guard let photo = photo else { fatalError("A photo image was not loaded in the cell.")}
- //       photoImage.image = photo.imageData
+        photoImage.image = UIImage(data: photo.imageData)
         photoLabel.text = photo.title
     }
 }
