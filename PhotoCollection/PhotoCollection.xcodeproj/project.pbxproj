@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4419A93623529787005C5312 /* UIImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419A93523529787005C5312 /* UIImagePickerController.swift */; };
+		4419A93623529787005C5312 /* PhotoPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419A93523529787005C5312 /* PhotoPickerController.swift */; };
 		444346D42351388100901602 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444346D32351388100901602 /* PhotosCollectionViewController.swift */; };
 		4464F7CE234EDF01000956B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4464F7CD234EDF01000956B0 /* AppDelegate.swift */; };
 		4464F7D0234EDF01000956B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4464F7CF234EDF01000956B0 /* SceneDelegate.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4419A93523529787005C5312 /* UIImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerController.swift; sourceTree = "<group>"; };
+		4419A93523529787005C5312 /* PhotoPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerController.swift; sourceTree = "<group>"; };
 		444346D32351388100901602 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		4464F7CA234EDF01000956B0 /* PhotoCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4464F7CD234EDF01000956B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 				444346D32351388100901602 /* PhotosCollectionViewController.swift */,
 				449A28072351434600B0E94D /* PhotoDetailViewController.swift */,
 				449A28092351500F00B0E94D /* ThemeSelectionViewController.swift */,
-				4419A93523529787005C5312 /* UIImagePickerController.swift */,
+				4419A93523529787005C5312 /* PhotoPickerController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 				449A28082351434600B0E94D /* PhotoDetailViewController.swift in Sources */,
 				449A280A2351500F00B0E94D /* ThemeSelectionViewController.swift in Sources */,
 				4464F7D0234EDF01000956B0 /* SceneDelegate.swift in Sources */,
-				4419A93623529787005C5312 /* UIImagePickerController.swift in Sources */,
+				4419A93623529787005C5312 /* PhotoPickerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

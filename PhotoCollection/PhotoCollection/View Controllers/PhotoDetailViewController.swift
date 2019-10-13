@@ -10,12 +10,13 @@ import UIKit
 
 
 
-class PhotoDetailViewController: UIViewController {
+class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
     var photoController: PhotoController?
     var photo: Photo?
     var themeHelper: ThemeHelper?
+    let imagePicker = UIImagePickerController()
     
     // MARK: Outlets
     @IBOutlet weak var photoImageView: UIImageView!
@@ -25,11 +26,15 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        imagePicker.delegate = self
     }
 
     // MARK: Actions
     @IBAction func addPhoto(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
         
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func savePhoto(_ sender: UIBarButtonItem) {
@@ -40,7 +45,7 @@ class PhotoDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     func setTheme() {
         guard let themePreference = themeHelper?.themePreference else { return }
             switch themePreference {
@@ -61,15 +66,16 @@ class PhotoDetailViewController: UIViewController {
         photoImageView.image = photoImage
         photoDescription.text = photo.title
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoImageView.contentMode = .scaleAspectFit
+            photoImageView.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
     }
-    */
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
