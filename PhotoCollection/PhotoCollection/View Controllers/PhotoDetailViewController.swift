@@ -33,7 +33,6 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func addPhoto(_ sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -41,7 +40,9 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         guard let photoController = photoController,
             let photoImage = photoImageView.image,
             let photoDescription = photoDescription.text else { return }
+        // Take the image from the UIImageView and convert it to data. In this case using pngData().
         let imageData = photoImage.pngData()!
+        // Make a photo and run the method from PhotoController to append it to the array.
         let photo = Photo(imageData: imageData, title: photoDescription)
         photoController.create(photo)
         // TODO: change save button to allow for update method
@@ -49,6 +50,8 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     // MARK: - Methods
+    
+    // Change the background color based on the user selected color theme
     func setTheme() {
         guard let themePreference = themeHelper?.themePreference else { return }
             switch themePreference {
@@ -63,6 +66,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     func updateViews() {
         setTheme()
+        // If there is a photo, convert the data to a UIImage and set that as the photoImageView image, and set the photoDescription text field to the photo title.
         guard let photo = photo else { return }
         let data = photo.imageData
         let photoImage = UIImage(data: data)
@@ -70,6 +74,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         photoDescription.text = photo.title
     }
     
+    // Most of the imagePicker code was found online.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             photoImageView.contentMode = .scaleAspectFit
