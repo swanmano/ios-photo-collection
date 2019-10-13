@@ -25,6 +25,7 @@ class ThemeSelectionViewController: UIViewController {
         themeHelper?.setThemePreferenceToDark()
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func selectGreenThemeButton(_ sender: UIButton) {
         themeHelper?.setThemePreferenceToGreen()
         dismiss(animated: true, completion: nil)
