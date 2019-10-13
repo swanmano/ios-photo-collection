@@ -40,13 +40,12 @@ class PhotosCollectionViewController: UICollectionViewController {
         switch segue.identifier {
         case "ShowPhotoDetailSegue":
             guard let photoDetailVC = segue.destination as? PhotoDetailViewController else { fatalError() }
-            
-            // there is a high probability that this next line won't work
-            if let indexPath = collectionView.indexPath(for: PhotosCollectionViewCell()) {
+            guard let cell = sender as? UICollectionViewCell,
+                let indexPath = self.collectionView.indexPath(for: cell) else {return}
                 photoDetailVC.photo = photoController.photos[indexPath.item]
                 photoDetailVC.themeHelper = themeHelper
                 photoDetailVC.photoController = photoController
-            }
+
         case "AddNewPhotoSegue":
             guard let photoDetailVC = segue.destination as? PhotoDetailViewController else { fatalError() }
                 photoDetailVC.themeHelper = themeHelper
