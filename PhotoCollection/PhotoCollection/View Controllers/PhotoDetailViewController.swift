@@ -50,6 +50,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         let photo = Photo(imageData: imageData, title: photoDescription)
         photoController.create(photo)
         // TODO: change save button to allow for update method
+        // The delegate runs updatePhotos(), which reloads the data in the collection view.
         delegate?.updatePhotos()
         self.navigationController?.popViewController(animated: true)
     }

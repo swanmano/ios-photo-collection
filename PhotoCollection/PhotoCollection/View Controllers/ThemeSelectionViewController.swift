@@ -24,7 +24,7 @@ class ThemeSelectionViewController: UIViewController {
     }
     
     // MARK: Actions
-    // The intent of these actions is to run the setThemePreference functions and then return to the PhotosCollectionViewController, but it is doing that in the reverse order and executing the unwind, which updates the collection view and then it comes back here to call the setTheme code. Not sure how to fix that.
+    // Run the setThemePreference methods and then return to the PhotosCollectionViewController and run setTheme() via the delegate.
     @IBAction func selectDarkThemeButton(_ sender: UIButton) {
         guard let themeHelper = themeHelper else { return }
         themeHelper.setThemePreferenceToDark()
