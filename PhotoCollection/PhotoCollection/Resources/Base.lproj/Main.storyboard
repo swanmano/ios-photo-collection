@@ -82,7 +82,7 @@
                     <navigationItem key="navigationItem" title="Photo Collection" id="gvs-3X-UGg">
                         <barButtonItem key="leftBarButtonItem" title="Select Theme" id="jDi-s5-Mxs">
                             <connections>
-                                <segue destination="u7o-Eg-ayt" kind="show" identifier="SelectThemeSegue" id="14g-6J-Dy0"/>
+                                <segue destination="u7o-Eg-ayt" kind="modal" identifier="SelectThemeSegue" id="14g-6J-Dy0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDl-c2-07H">
@@ -101,17 +101,17 @@
             <objects>
                 <viewController id="u7o-Eg-ayt" customClass="ThemeSelectionViewController" customModule="PhotoCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Elu-iA-bcA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a color theme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSf-IJ-v0Z">
-                                <rect key="frame" x="98.5" y="265" width="217.5" height="29"/>
+                                <rect key="frame" x="98.5" y="125" width="217.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="DaU-16-YCp">
-                                <rect key="frame" x="136" y="354" width="142" height="30"/>
+                                <rect key="frame" x="136" y="214" width="142" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix1-ov-8yW">
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
