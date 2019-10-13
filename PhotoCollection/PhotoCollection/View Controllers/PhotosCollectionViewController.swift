@@ -25,7 +25,6 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     // This unwind comes from either theme button in ThemeSelectionViewController
     @IBAction func unwindToPhotoCollectionViewController(_ sender: UIStoryboardSegue) {
-        collectionView.reloadData()
         setTheme()
     }
 
@@ -50,6 +49,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         case "SelectThemeSegue":
             guard let themeSelectionVC = segue.destination as? ThemeSelectionViewController else {
                 fatalError() }
+            themeSelectionVC.delegate = self
             themeSelectionVC.themeHelper = themeHelper
         default:
             return
@@ -83,7 +83,14 @@ class PhotosCollectionViewController: UICollectionViewController {
         default:
             collectionView.backgroundColor = UIColor.clear
         }
-        collectionView.reloadData()
     }
 
+}
+
+extension PhotosCollectionViewController: ChangeThemeUpdate {
+    func updateTheme() {
+        setTheme()
+    }
+    
+    
 }
